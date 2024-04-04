@@ -1,0 +1,4 @@
+flask
+lato
+dependency-injector>=4.0,<5.0
+SQLAlchemy
