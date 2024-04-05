@@ -14,6 +14,4 @@ class CreateTodo(Command):
 
 
 class CompleteTodo(Command):
-    """This commands represents an intent to complete an existing todo"""
-
     todo_id: UUID

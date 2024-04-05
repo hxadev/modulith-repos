@@ -2,11 +2,9 @@ from collections.abc import Callable
 from datetime import datetime
 from typing import Any
 
-from analytics.dtos import TodosCounter
-from analytics import AnalyticsModule as analytics
-from notifications import NotificationsModule as notifications
-from todos import TodoModule as todos
-from todos.domain.repository import TodoRepository
+from analytics_module import TodosCounter, analytics
+from notifications_module import NotificationService, notifications
+from todo_module import TodoRepository, todos
 
 from lato import Application, TransactionContext
 
@@ -15,8 +13,8 @@ def create_app() -> Application:
     # create an application with dependencies used across the handlers
     app = Application(
         "Tutorial",
-        todo_repository=TodoRepository,  # used by todos module
-        notification_service=notifications.NotificationService(),  # used by notifications module
+        todo_repository=TodoRepository(),  # used by todos module
+        notification_service=NotificationService(),  # used by notifications module
         todos_counter=TodosCounter(),  # used ny analytics module
     )
     # add modules to the app
