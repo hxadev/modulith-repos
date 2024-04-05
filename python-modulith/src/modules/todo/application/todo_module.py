@@ -3,14 +3,13 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from commands import CompleteTodo, CreateTodo
-from events import TodoWasCompleted
-from queries import GetAllTodos, GetSomeTodos, GetTodoDetails
+from modules.todo.application.commands import CompleteTodo, CreateTodo
+from modules.todo.application.events import TodoWasCompleted
+from modules.todo.application.queries import GetAllTodos, GetSomeTodos, GetTodoDetails
 
 from lato import ApplicationModule, TransactionContext
 
 todos = ApplicationModule("todos")
-
 
 @dataclass
 class TodoModel:

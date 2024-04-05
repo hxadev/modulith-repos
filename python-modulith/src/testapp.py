@@ -1,8 +1,8 @@
 from uuid import UUID
 import pytest
 from app import create_app
-from commands import CreateTodo, CompleteTodo
-from queries import GetAllTodos
+from modules.todo.application.commands import CreateTodo, CompleteTodo
+from modules.todo.application.queries import GetAllTodos
 
 app = create_app()
 

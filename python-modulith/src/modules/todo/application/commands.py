@@ -12,6 +12,5 @@ class CreateTodo(Command):
     description: str = ""
     due_at: Optional[datetime] = None
 
-
 class CompleteTodo(Command):
     todo_id: UUID

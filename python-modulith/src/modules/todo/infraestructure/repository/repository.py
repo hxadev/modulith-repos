@@ -1,5 +1,5 @@
 from uuid import UUID
-from models import TodoModel
+from modules.todo.domain.models import TodoModel
 
 
 class TodoRepository:

@@ -1,17 +1,17 @@
-from events import TodoWasCompleted
-from queries import GetTodoDetails
-from todo_module import TodoReadModel
+
 
 from lato import ApplicationModule, TransactionContext
+
+from modules.todo.application.events import TodoWasCompleted
+from modules.todo.application.queries import GetTodoDetails
+from modules.todo.application.todo_module import TodoReadModel
 
 
 class NotificationService:
     def push(self, message):
         print(message)
 
-
 notifications = ApplicationModule("notifications")
-
 
 @notifications.handler(TodoWasCompleted)
 def on_todo_was_completed(
@@ -19,6 +19,5 @@ def on_todo_was_completed(
 ):
     details: TodoReadModel = ctx.execute(GetTodoDetails(todo_id=event.todo_id))
     print(details)
-    message = f"A todo {details.title} was completed"
+    message = f"**** [NOTIFICATION] **** A todo {details.title} was completed"
     service.push(message)
-    
